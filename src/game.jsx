@@ -20,7 +20,6 @@ export default (props) => {
     const [players, setPlayers] = useGlobal('players')
     const [spinDisabled, setSpinDisabled] = useState(false)
     const spin = () => {
-        console.log(turn, players, color, command)
         const [name, player] = Object.entries(players)[turn]
         const [newLimb, newColor] = player.twist()
         setCommand(`${name.toUpperCase()}: ${LIMBS[newLimb]} `)

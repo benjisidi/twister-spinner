@@ -22,10 +22,11 @@ export default (props) => {
         setNPlayers(val)
     }
     const onSubmit = (data) => {
-        console.log(data)
         const newPlayers = {}
         Object.values(data).forEach(name => {
-            newPlayers[name] = new Player(name)
+            if (name !== "") {
+                newPlayers[name] = new Player(name)
+            }
         })
         setPlayers(newPlayers)
         navigate("/play", {replace:true})

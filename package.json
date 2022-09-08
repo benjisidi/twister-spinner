@@ -8,7 +8,9 @@
   "license": "ISC",
   "scripts": {
     "clean": "rm dist/bundle.js",
-    "start": "webpack serve --mode development",
+    "dev": "webpack serve --mode development",
+    "start": "node server.js",
+    "heroku-postbuild": "webpack --mode production",
     "build": "webpack --mode production"
   },
   "dependencies": {
@@ -16,6 +18,7 @@
     "@emotion/styled": "^11.10.4",
     "@mui/icons-material": "^5.10.3",
     "@mui/material": "^5.10.4",
+    "express": "^4.18.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.34.2",

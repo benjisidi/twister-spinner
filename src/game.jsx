@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import CssBaseline from '@mui/material/CssBaseline';
 import Box from '@mui/material/Box';
 import { useGlobal } from 'reactn';
 import EliminateModal from './eliminate-modal';
@@ -25,7 +24,7 @@ export default (props) => {
         const [name, player] = Object.entries(players)[turn]
         const [newLimb, newColor] = player.twist()
         setCommand(`${name.toUpperCase()}: ${LIMBS[newLimb]} `)
-        setColor(newColor)
+        setColor(newColor.toUpperCase())
         const nPlayers = Object.keys(players).length
         setTurn((turn + 1) % nPlayers)
     }
@@ -40,7 +39,6 @@ export default (props) => {
     return (
         <Container component="main" maxWidth="xs">
             {players == undefined && <Navigate to="/"/>}
-            <CssBaseline />
             <EliminateModal open={eliminateOpen} handleClose={handleElimination}/>
              <Box
             sx={{
@@ -50,7 +48,7 @@ export default (props) => {
                 alignItems: 'center',
             }}
             >
-                <Typography>{command}<span color={color}>{color}</span></Typography>
+                <Typography>{command}<span style={{color: color.toLowerCase()}}>{color}</span></Typography>
                 <Button disabled={ spinDisabled} onClick={() => spin()} size="large">SPIN</Button>
                 <Button disabled={spinDisabled} onClick={() => setEliminateOpen(true)} color="error">Eliminate Players</Button>
                 {spinDisabled &&

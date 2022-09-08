@@ -3,7 +3,6 @@ import Container from '@mui/material/Container';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import CssBaseline from '@mui/material/CssBaseline';
 import Box from '@mui/material/Box';
 import { useForm } from "react-hook-form";
 import { useGlobal } from 'reactn';
@@ -33,7 +32,6 @@ export default (props) => {
     }
     return (
         <Container component="main" maxWidth="xs">
-        <CssBaseline />
         <Box
             sx={{
                 marginTop: 8,

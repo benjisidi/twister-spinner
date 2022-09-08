@@ -2,6 +2,15 @@
 import React from "react";
 import Game from "./game"
 import GameConfig from "./game-config"
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
+
+const darkTheme = createTheme({
+  palette: {
+    mode: 'dark',
+  },
+});
+
 
 import {
   BrowserRouter as Router,
@@ -11,12 +20,16 @@ import {
 class App extends React.Component {
   render() {
       return (
+    <ThemeProvider theme={darkTheme}>
+      <CssBaseline />
           <Router>
               <Routes >
             <Route path="/play" element={<Game />}/>
             <Route path="/" element={<GameConfig/>}/>
           </Routes >
-            </Router>
+              </Router>
+                  </ThemeProvider>
+
     );
   }
 }
